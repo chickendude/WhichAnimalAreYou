@@ -12,7 +12,33 @@
 	tools:context="ch.ralena.whichanimalareyou.MainActivity">
 
 	<TextView
+		android:text="Please rate the following statements!"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="Hello World!"/>
+		android:id="@+id/titleTextView"
+		android:textSize="36sp"
+		android:textAlignment="center"/>
+
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentEnd="true"
+		android:layout_marginTop="26dp"
+		android:layout_marginBottom="26dp"
+		android:id="@+id/questionLayout"
+		android:layout_below="@+id/titleTextView"
+		android:layout_above="@+id/submitButton"
+		android:background="#eee">
+	</LinearLayout>
+
+	<Button
+		android:text="Check Result"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/submitButton"
+		android:layout_alignParentBottom="true"
+		android:layout_centerHorizontal="true"
+		style="@style/Widget.AppCompat.Button.Colored"/>
+
 </RelativeLayout>
