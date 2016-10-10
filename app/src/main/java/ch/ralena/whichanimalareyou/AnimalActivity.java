@@ -70,11 +70,10 @@ public class AnimalActivity extends AppCompatActivity {
 			}
 			animalImageView.setImageDrawable(getResources().getDrawable(yourAnimal.getResourceId()));
 			Toast.makeText(this, "You are a " + yourAnimal.getName(), Toast.LENGTH_SHORT).show();
-		}
-		if (captionText.equals("")) {
-			captionText = "You can put a caption here.";
+			if (captionText.equals("")) {
+				captionText = "You are a " + yourAnimal.getName() + ".";
+			}
 		}
 		captionTextView.setText(captionText);
-
 	}
 }

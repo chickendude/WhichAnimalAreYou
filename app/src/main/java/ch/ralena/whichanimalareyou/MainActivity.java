@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
 				android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
 		captionEditText = new EditText(this);
 		captionEditText.setLayoutParams(lp);
+		captionEditText.setHint("Enter a caption here");
 		questionLayout.addView(captionEditText);
 
 		submitButton.setOnClickListener(new View.OnClickListener() {
