@@ -7,6 +7,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -15,29 +16,7 @@ import java.util.List;
 
 // all images but monkey, dolphin, elephant, panda, and tiger taken
 // from publicdomainpictures.net
-		/*
-		butterfly:
-			1	5	1	1	1	1	1	5
-		dolphin:
-			4	1	5	3	3	3	1	1
-		elephant
-			1	3	3	3	4	1	1	2
-		flamingo
-			3	3	2	2	2	1	1	3
-		jellyfish
-			1	1	5	4	1	1	1	1
-		lion
-			5	3	3	5	3	3	1	3
-		monkey
-			1	3	2	2	3	2	1	3
-		redpanda
-			1	4	2	2	5	1	1	4
-		squirrel
-			1	2	2	1	4	1	5	2
-		teddybear
-			1	5	1	1	1	5	1	5
-		tiger
-			5	3	3	5	3	2	1	2*/
+// dung beetle from http://snappygoat.com/
 //TODO: add Animal class with array of int score values
 public class MainActivity extends AppCompatActivity {
 
@@ -78,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
 			answerSpinner.setAdapter(adapter);
 			answerSpinner.setLayoutParams(lp2);
 			answerSpinner.setId(id++);
+			answerSpinner.setSelection(2);
+			answerSpinner.setFocusable(true);
 
 			// first add the text and spinner views to our horizontal layout
 			// then add that to our vertical layout
@@ -87,10 +68,17 @@ public class MainActivity extends AppCompatActivity {
 			questionLayout.addView(questionHolder);
 		}
 
+		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+				android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
+				android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+		EditText caption = new EditText(this);
+		caption.setLayoutParams(lp);
+		questionLayout.addView(caption);
+
 		submitButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				int numChildren = questionLayout.getChildCount();
+				int numChildren = questionLayout.getChildCount()-1;
 				int[] selections = new int[numChildren];
 				for (int i = 0; i < numChildren; i++) {
 					LinearLayout layout = (LinearLayout) questionLayout.getChildAt(i);

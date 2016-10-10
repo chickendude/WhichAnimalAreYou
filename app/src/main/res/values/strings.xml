@@ -1,7 +1,7 @@
 <resources>
 	<string name="app_name">Which Animal Are You</string>
 	<string-array name="answer_array">
-		<item>Not at all</item>
+		<item>No way José!</item>
 		<item>Not really</item>
 		<item>I guess</item>
 		<item>Definitely</item>

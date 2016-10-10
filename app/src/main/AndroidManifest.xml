@@ -16,7 +16,8 @@
 			</intent-filter>
 		</activity>
 		<activity android:name=".AnimalActivity"
-			android:parentActivityName=".MainActivity">
+				  android:label="You are a..."
+				  android:parentActivityName=".MainActivity">
 			<meta-data
 				android:name="android.support.PARENT_ACTIVITY"
 				android:value="ch.ralena.whichanimalareyou.MainActivity" />
