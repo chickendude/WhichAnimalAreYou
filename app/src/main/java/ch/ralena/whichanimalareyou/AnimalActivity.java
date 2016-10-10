@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class AnimalActivity extends AppCompatActivity {
 
 	private List<Animal> animalList;
 	private ImageView animalImageView;
+	private TextView captionTextView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,8 @@ public class AnimalActivity extends AppCompatActivity {
 		// pull the responses from last time
 		Intent intent = getIntent();
 		int[] selections = intent.getIntArrayExtra("selections");
+		String captionText = intent.getStringExtra("caption");
+		captionTextView = (TextView) findViewById(R.id.captionTextView);
 
 		// check if any of the values changed
 		boolean changed = false;
@@ -49,6 +53,7 @@ public class AnimalActivity extends AppCompatActivity {
 		if (!changed) {
 			animalImageView.setImageDrawable(getResources().getDrawable(R.drawable.dungbeetle));
 			Toast.makeText(this, "You are a dung beetle. Did you even take the quiz?", Toast.LENGTH_LONG).show();
+			captionText = "Did you even take the quiz?!";
 		} else {
 			Animal yourAnimal = animalList.get(0);
 			int topScore = 100;
@@ -66,5 +71,10 @@ public class AnimalActivity extends AppCompatActivity {
 			animalImageView.setImageDrawable(getResources().getDrawable(yourAnimal.getResourceId()));
 			Toast.makeText(this, "You are a " + yourAnimal.getName(), Toast.LENGTH_SHORT).show();
 		}
+		if (captionText.equals("")) {
+			captionText = "You can put a caption here.";
+		}
+		captionTextView.setText(captionText);
+
 	}
 }

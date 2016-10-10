@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
 	private LinearLayout questionLayout;
 	private Button submitButton;
+	private EditText captionEditText;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +72,9 @@ public class MainActivity extends AppCompatActivity {
 		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
 				android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
 				android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-		EditText caption = new EditText(this);
-		caption.setLayoutParams(lp);
-		questionLayout.addView(caption);
+		captionEditText = new EditText(this);
+		captionEditText.setLayoutParams(lp);
+		questionLayout.addView(captionEditText);
 
 		submitButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 				}
 				Intent intent = new Intent(MainActivity.this, AnimalActivity.class);
 				intent.putExtra("selections",selections);
+				intent.putExtra("caption", captionEditText.getText().toString());
 				startActivity(intent);
 			}
 		});
