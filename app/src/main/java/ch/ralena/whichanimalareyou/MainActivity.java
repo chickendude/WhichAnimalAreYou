@@ -1,5 +1,6 @@
 package ch.ralena.whichanimalareyou;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
@@ -14,7 +15,6 @@ import java.util.List;
 
 // all images but monkey, dolphin, elephant, panda, and tiger taken
 // from publicdomainpictures.net
-
 		/*
 		butterfly:
 			1	5	1	1	1	1	1	5
@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 		List<String> questionList = Questions.getQuestions();
 
 		// populate our linearlayout with our questions
+		int id = 0;	// spinner id
 		for (String question : questionList) {
 			// make a horizontal linear layout for the question and spinner
 			LinearLayout questionHolder = new LinearLayout(this);
@@ -76,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
 			ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.answer_array, android.R.layout.simple_spinner_dropdown_item);
 			answerSpinner.setAdapter(adapter);
 			answerSpinner.setLayoutParams(lp2);
+			answerSpinner.setId(id++);
 
 			// first add the text and spinner views to our horizontal layout
 			// then add that to our vertical layout
@@ -84,5 +86,21 @@ public class MainActivity extends AppCompatActivity {
 			questionHolder.setPadding(0,5,0,5);
 			questionLayout.addView(questionHolder);
 		}
+
+		submitButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				int numChildren = questionLayout.getChildCount();
+				int[] selections = new int[numChildren];
+				for (int i = 0; i < numChildren; i++) {
+					LinearLayout layout = (LinearLayout) questionLayout.getChildAt(i);
+					Spinner spinner = (Spinner) layout.getChildAt(1);
+					selections[i] = (int) spinner.getSelectedItemId();
+				}
+				Intent intent = new Intent(MainActivity.this, AnimalActivity.class);
+				intent.putExtra("selections",selections);
+				startActivity(intent);
+			}
+		});
 	}
 }
