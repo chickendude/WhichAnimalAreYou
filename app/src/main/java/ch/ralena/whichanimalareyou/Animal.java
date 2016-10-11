@@ -4,11 +4,13 @@ public class Animal {
 	private int[] mStats;
 	private String mName;
 	private int mResourceId;
+	private int mCaptionResourceId;
 
-	public Animal(String name, int[] stats, int resourceId) {
+	public Animal(String name, int[] stats, int resourceId, int captionResourceId) {
 		mStats = stats;
 		mName = name;
 		mResourceId = resourceId;
+		mCaptionResourceId = captionResourceId;
 	}
 
 	public int[] getStats() {
@@ -21,5 +23,9 @@ public class Animal {
 
 	public int getResourceId() {
 		return mResourceId;
+	}
+
+	public int getCaptionResourceId() {
+		return mCaptionResourceId;
 	}
 }

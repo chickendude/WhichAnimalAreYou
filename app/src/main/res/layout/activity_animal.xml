@@ -11,22 +11,73 @@
 	<ImageView
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		app:srcCompat="@drawable/butterfly"
+		app:srcCompat="@drawable/flamingo"
 		android:id="@+id/animalImageView"
 		android:adjustViewBounds="true"
 		android:scaleType="fitXY"/>
 
 	<TextView
 		android:text="Your caption"
-		android:id="@+id/captionTextView"
+		android:id="@+id/captionRightTextView"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_alignParentTop="true"
-		android:layout_alignParentEnd="true"
-		android:layout_marginEnd="11dp"
-		android:layout_marginTop="187dp"
 		android:padding="10dp"
 		android:textSize="18sp"
-		android:background="@drawable/speechbubble"/>
+		android:background="@drawable/speechbubble"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentEnd="true"
+		android:layout_marginBottom="203dp"
+		android:visibility="invisible"/>
 
+	<TextView
+		android:text="Your caption"
+		android:id="@+id/captionMiddleTextView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:padding="10dp"
+		android:textSize="18sp"
+		android:background="@drawable/speechbubble"
+		android:layout_alignTop="@+id/captionRightTextView"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="19dp"
+		android:visibility="invisible"/>
+
+	<TextView
+		android:text="Your caption"
+		android:id="@+id/captionLeftTextView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:padding="10dp"
+		android:textSize="18sp"
+		android:background="@drawable/speechbubble"
+		android:layout_alignBaseline="@+id/captionRightTextView"
+		android:layout_alignBottom="@+id/captionRightTextView"
+		android:layout_alignParentStart="true"
+		android:visibility="invisible"/>
+
+	<TextView
+		android:text="Your caption"
+		android:id="@+id/captionLeftUpTextView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:padding="10dp"
+		android:textSize="18sp"
+		android:background="@drawable/speechbubble"
+		android:layout_above="@+id/captionLeftTextView"
+		android:layout_toStartOf="@+id/captionMiddleTextView"
+		android:layout_marginBottom="47dp"
+		android:visibility="invisible"/>
+
+	<TextView
+		android:text="Your caption"
+		android:id="@+id/captionMiddleUpTextView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:padding="10dp"
+		android:textSize="18sp"
+		android:background="@drawable/speechbubble"
+		android:layout_above="@+id/captionRightTextView"
+		android:layout_toEndOf="@+id/captionLeftTextView"
+		android:layout_marginBottom="29dp"
+		android:visibility="invisible"/>
 </RelativeLayout>
